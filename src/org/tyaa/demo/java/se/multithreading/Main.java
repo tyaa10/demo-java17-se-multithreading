@@ -24,7 +24,7 @@ public class Main {
         FirstSharedResource resource = new FirstSharedResource();
         SecondWorker secondWorker1 = new SecondWorker(resource);
         SecondWorker secondWorker2 = new SecondWorker(resource);
-        while (!secondWorker1.isDone() && !secondWorker2.isDone()) {
+        while (!secondWorker1.isDone() || !secondWorker2.isDone()) {
             Thread.sleep(5);
         }
         System.out.printf("Count = %s, Static Count = %s", resource.count, FirstSharedResource.staticCount);

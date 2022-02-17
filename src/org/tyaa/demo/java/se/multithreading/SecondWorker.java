@@ -11,12 +11,14 @@ public class SecondWorker implements Runnable {
         new Thread(this).start();
     }
 
-    private static void addStatic () {
+    private synchronized static void addStatic () {
         FirstSharedResource.staticCount++;
     }
 
     private void add () {
-        resource.count++;
+        synchronized (resource) {
+            resource.count++;
+        }
     }
 
     public boolean isDone() {
