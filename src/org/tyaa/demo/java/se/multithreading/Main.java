@@ -21,12 +21,20 @@ public class Main {
         t2.join(5000);
         System.out.println("The End"); */
 
-        FirstSharedResource resource = new FirstSharedResource();
+        /* FirstSharedResource resource = new FirstSharedResource();
         SecondWorker secondWorker1 = new SecondWorker(resource);
         SecondWorker secondWorker2 = new SecondWorker(resource);
         while (!secondWorker1.isDone() || !secondWorker2.isDone()) {
             Thread.sleep(5);
         }
-        System.out.printf("Count = %s, Static Count = %s", resource.count, FirstSharedResource.staticCount);
+        System.out.printf("Count = %s, Static Count = %s", resource.count, FirstSharedResource.staticCount); */
+
+        SecondSharedResource resource = new SecondSharedResource();
+        /* for (int i = 0; i < 10; i++) {
+            resource.printTik();
+            resource.printTac();
+        } */
+        new ThirdWorker(resource, 1);
+        new ThirdWorker(resource, 2);
     }
 }
