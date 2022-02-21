@@ -34,7 +34,18 @@ public class Main {
             resource.printTik();
             resource.printTac();
         } */
-        new ThirdWorker(resource, 1);
-        new ThirdWorker(resource, 2);
+        ThirdWorker t1 = new ThirdWorker(resource, 1);
+        ThirdWorker t2 = new ThirdWorker(resource, 2);
+        Thread.sleep(10);
+        // t1.interrupt();
+        // t2.interrupt();
+        // t1.stop();
+        // t2.stop();
+        t1.isFinished = true;
+        t2.isFinished = true;
+        // приостановить поток t1
+        // t1.suspend();
+        // пробудить поток t1 после приостановки
+        // t1.resume();
     }
 }
